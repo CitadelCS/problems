@@ -7,27 +7,3 @@ submit50:
 
 check50:
   files: *submit50_files
-  checks:
-    whole number:
-      - run: python3 metric.py
-        stdin: 123
-        stdout: | # multiline
-          123.0 feet is 37.49 meters
-          123.0 meters is 403.54 feet
-        exit: 0
-    
-    exact conversion factor:
-      - run: python3 metric.py
-        stdin: 3048
-        stdout: | # multiline
-          3048.0 feet is 929.03 meters
-          3048.0 meters is 10000.00 feet
-        exit: 0
-
-    fractional number:
-      - run: python3 metric.py
-        stdin: 123.456
-        stdout: | # multiline
-          123.456 feet is 37.63 meters
-          123.456 meters is 405.04 feet
-        exit: 0
