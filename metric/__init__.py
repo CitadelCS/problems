@@ -2,9 +2,9 @@ import check50
 
 @check50.check()
 def exists():
-    """indoor.py exists"""
-    check50.exists("indoor.py")
-    
+    """metric.py exists"""
+    check50.exists("metric.py")
+
 @check50.check()
 def whole_number():
     """whole number"""
