@@ -1,4 +1,12 @@
+submit50:
+  files: &submit50_files
+    - !exclude "*"
+    - !include "*.py"
+    - !require honor.py
+  style: false
+
 check50:
+  files: *submit50_files
   checks:
     cadet lower:
       - run: python3 honor.py
