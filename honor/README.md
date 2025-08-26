@@ -40,7 +40,7 @@ code honor.py
 ## Program Specification
 Since all students, not just Cadets, must follow an honor code, your program must first prompt the user for their student type. You may assume that the user of your program will enter `cadet` or `student` with no need for you to verify. Next, output the Honor Code exactly as specified above, **except that your program must insert the student type entered, in uppercase**. You can see a few sample runs in the terminal video below.
 
-[![asciicast](https://asciinema.org/a/xAOHuItk65ngEcSjIose4SrSk.svg)](https://asciinema.org/a/xAOHuItk65ngEcSjIose4SrSk)
+[![asciicast](https://asciinema.org/a/MskoJOfMhUZ15T9J2mHUGmLI0.svg)](https://asciinema.org/a/MskoJOfMhUZ15T9J2mHUGmLI0)
 
 ## Testing
 Run your program in the terminal with the command: `python honor.py`. You must be in the same directory as the `.py` file for this to work. Interact with your program and make sure it runs as expected.
