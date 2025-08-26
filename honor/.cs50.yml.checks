@@ -1,0 +1,45 @@
+submit50:
+  files: &submit50_files
+    - !exclude "*"
+    - !include "*.py"
+    - !require honor.py
+  style: false
+
+check50:
+  files: *submit50_files
+  checks:
+    cadet lower:
+      - run: python3 honor.py
+        stdin: cadet
+        stdout: | # multiline
+          A CADET DOES NOT LIE, CHEAT,
+          OR STEAL,
+          NOR TOLERATE THOSE WHO DO.
+        exit: 0
+    
+    student lower:
+      - run: python3 honor.py
+        stdin: student
+        stdout: | # multiline
+          A STUDENT DOES NOT LIE, CHEAT,
+          OR STEAL,
+          NOR TOLERATE THOSE WHO DO.
+        exit: 0
+
+    cadet mixed:
+      - run: python3 honor.py
+        stdin: cAdEt
+        stdout: | # multiline
+          A CADET DOES NOT LIE, CHEAT,
+          OR STEAL,
+          NOR TOLERATE THOSE WHO DO.
+        exit: 0
+    
+    any words:
+      - run: python3 honor.py
+        stdin: golden retriever!
+        stdout: | # multiline
+          A GOLDEN RETRIEVER! DOES NOT LIE, CHEAT,
+          OR STEAL,
+          NOR TOLERATE THOSE WHO DO.
+        exit: 0
