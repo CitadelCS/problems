@@ -1,0 +1,7 @@
+check50:
+  files:
+    - !exclude "*"
+    - !include "*.py"
+    - !require simple_grader.py
+  style: false
+  checks: __init__.py
