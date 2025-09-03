@@ -1,0 +1,8 @@
+submit50:
+  files: &submit50_files
+    - !exclude "*"
+    - !include "*.py"
+    - !require honor.py
+  style: false
+
+# refactored checks from https://github.com/cs50/problems/blob/2022/python/deep/__init__.py
