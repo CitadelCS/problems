@@ -1,0 +1,33 @@
+submit50:
+  files: &submit50_files
+    - !exclude "*"
+    - !include "*.py"
+    - !require fraction.py
+  style: false
+
+check50:
+  files: *submit50_files
+  checks:
+    input of 45 over 46 prints proper:
+      - run: python3 fraction.py
+        stdin: 45/46
+        stdout: proper
+        exit: 0
+    
+    input of 45 over 15 prints improper:
+      - run: python3 fraction.py
+        stdin: 45/15
+        stdout: "improper: 3"
+        exit: 0
+
+    input of 45 over 25 prints improper:
+      - run: python3 fraction.py
+        stdin: 45/25
+        stdout: "improper: 1 + 20/25"
+        exit: 0
+    
+    zero denominator prints invalid:
+      - run: python3 fraction.py
+        stdin: 45/0
+        stdout: invalid
+        exit: 0
