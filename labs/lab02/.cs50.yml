@@ -1,7 +1,9 @@
-check50:
-  files:
+  submit50:
+  files: &submit50_files
     - !exclude "*"
     - !include "*.py"
     - !require fuel_efficiency.py
   style: false
-  checks: __init__.py
+
+check50:
+  files: *submit50_files
