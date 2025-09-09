@@ -1,4 +1,4 @@
-  submit50:
+submit50:
   files: &submit50_files
     - !exclude "*"
     - !include "*.py"
