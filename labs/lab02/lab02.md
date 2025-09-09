@@ -46,12 +46,12 @@ Error: Gallons used cannot be zero.
 
 ## How to Check:
 ```bash
-check50 /citadelcs/problems/labs/lab02
+check50 /citadelcs/problems/main/labs/lab02
 ```
 ## How to Submit:
 ##### Step 1:
 ```bash
-submit50 /citadelcs/problems/labs/lab02
+submit50 /citadelcs/problems/main/labs/lab02
 ```
 ##### Step 2
 Upload your python file to canvas.
