@@ -1,0 +1,7 @@
+check50:
+  files:
+    - !exclude "*"
+    - !include "*.py"
+    - !require fuel_efficiency.py
+  style: false
+  checks: __init__.py
