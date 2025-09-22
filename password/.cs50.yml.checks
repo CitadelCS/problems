@@ -1,0 +1,69 @@
+submit50:
+  files: &submit50_files
+    - !exclude "*"
+    - !include "*.py"
+    - !require password.py
+  style: false
+
+check50:
+  files: *submit50_files
+  checks:
+    cannot start with a digit:
+      - run: python3 password.py
+        stdin: 1abcDEF!
+        stdout: invalid
+        exit: 0
+
+    cannot be nine characters:
+      - run: python3 password.py
+        stdin: aaaBBB!34
+        stdout: invalid
+        exit: 0
+
+    cannot be seven characters:
+      - run: python3 password.py
+        stdin: abcDE1!
+        stdout: invalid
+        exit: 0
+
+    must have one uppercase letter:
+      - run: python3 password.py
+        stdin: abcdef!1
+        stdout: invalid
+        exit: 0
+
+    must have one lowercase letter:
+      - run: python3 password.py
+        stdin: ABCDEF!1
+        stdout: invalid
+        exit: 0
+    
+    must have one digit:
+      - run: python3 password.py
+        stdin: ABCdef!!
+        stdout: invalid
+        exit: 0
+
+    must have one approved symbol:
+      - run: python3 password.py
+        stdin: ABCdef&1
+        stdout: invalid
+        exit: 0
+
+    must approve valid password:
+      - run: python3 password.py
+        stdin: ABCdef1!
+        stdout: valid
+        exit: 0
+
+    must approve valid password:
+      - run: python3 password.py
+        stdin: ABC22f1*
+        stdout: valid
+        exit: 0
+
+    must approve valid password:
+      - run: python3 password.py
+        stdin: def2?ABC
+        stdout: valid
+        exit: 0
