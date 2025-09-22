@@ -1,6 +1,11 @@
 import check50
 
 @check50.check()
+def exists():
+    """password.py exists"""
+    check50.exists("password.py")
+
+@check50.check()
 def cannot_start_with_a_digit():
     """cannot start with a digit"""
     check50.run("python3 password.py").stdin("1abcDEF!", prompt=False).stdout("invalid", regex=False).exit(0)
