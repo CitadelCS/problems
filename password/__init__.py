@@ -36,6 +36,16 @@ def must_have_one_approved_symbol():
     check50.run("python3 password.py").stdin("ABCdef&1", prompt=False).stdout("invalid", regex=False).exit(0)
 
 @check50.check()
-def must_approve_valid_password():
-    """must approve valid password"""
+def must_approve_valid_password1():
+    """must approve valid password1"""
+    check50.run("python3 password.py").stdin("ABCdef1!", prompt=False).stdout("valid", regex=False).exit(0)
+
+@check50.check()
+def must_approve_valid_password2():
+    """must approve valid password2"""
+    check50.run("python3 password.py").stdin("ABC22f1*", prompt=False).stdout("valid", regex=False).exit(0)
+
+@check50.check()
+def must_approve_valid_password3():
+    """must approve valid password3"""
     check50.run("python3 password.py").stdin("def2?ABC", prompt=False).stdout("valid", regex=False).exit(0)

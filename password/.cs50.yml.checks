@@ -50,19 +50,19 @@ check50:
         stdout: invalid
         exit: 0
 
-    must approve valid password:
+    must approve valid password1:
       - run: python3 password.py
         stdin: ABCdef1!
         stdout: valid
         exit: 0
 
-    must approve valid password:
+    must approve valid password2:
       - run: python3 password.py
         stdin: ABC22f1*
         stdout: valid
         exit: 0
 
-    must approve valid password:
+    must approve valid password3:
       - run: python3 password.py
         stdin: def2?ABC
         stdout: valid
