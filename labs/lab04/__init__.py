@@ -53,7 +53,7 @@ def add_two_books_then_quit():
         .stdin("Dune")
         .stdin("Frank Herbert")
         .stdin("no")
-        .stdout("(?s)Your Library:.*1\\. \"The Hobbit\" by J\\.R\\.R\\. Tolkien.*2\\. \"Dune\" by Frank Herbert", regex=True)
+        .stdout("\\nYour Library:.*1\\. \"The Hobbit\" by J\\.R\\.R\\. Tolkien.*2\\. \"Dune\" by Frank Herbert", regex=True)
         .exit(0))
 
 @check50.check(exists)
@@ -82,5 +82,5 @@ def case_insensitive_yes_no():
         .stdin("Dune")
         .stdin("Frank Herbert")
         .stdin("NO")
-        .stdout("(?s)Your Library:\\s*1\\. \"Dune\" by Frank Herbert", regex=True)
+        .stdout("\\nYour Library:\\s*1\\. \"Dune\" by Frank Herbert", regex=True)
         .exit(0))
