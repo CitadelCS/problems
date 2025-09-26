@@ -1,5 +1,4 @@
 import check50
-from pexpect import "quit"
 from re import escape
 
 
@@ -36,7 +35,7 @@ def test_single_and_multiple_items():
     """input of \"mango\", \"sugar\", and \"mango\" yields \"2 MANGO 1 SUGAR\""""
     items = ["mango", "sugar", "mango"]
     output = "2 MANGO\n1 SUGAR"
-    check50.run("python3 grocery.py").stdin(items[0], prompt=False).stdin(items[1], prompt=False).stdin(items[2], prompt=False).stdinquit", prompt=False).stdout(regex(output), output, regex=True).exit()
+    check50.run("python3 grocery.py").stdin(items[0], prompt=False).stdin(items[1], prompt=False).stdin(items[2], prompt=False).stdin("quit", prompt=False).stdout(regex(output), output, regex=True).exit()
 
 
 @check50.check(test_quit)
