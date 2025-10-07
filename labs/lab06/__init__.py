@@ -1,20 +1,16 @@
-import check50
+import builtins
+import importlib.util
 import re
 import subprocess
-import importlib.util
-import builtins
+
+import check50
+
 
 @check50.check()
 def exists():
     """calculator.py exists"""
     check50.exists("calculator.py")
 
-
-import check50
-import re
-
-import check50
-import re
 
 @check50.check(exists)
 def check_main_guard():
@@ -23,8 +19,8 @@ def check_main_guard():
         lines = f.readlines()
 
     # Find the if __name__ == "__main__" guard line
-    main_guard_line_nums = [i for i, line in enumerate(lines)
-                           if re.match(r'\s*if\s+__name__\s*==\s*[\'"]__main__[\'"]\s*:', line)]
+    main_guard_line_nums = [i for i, line in enumerate(lines) if
+                            re.match(r'\s*if\s+__name__\s*==\s*[\'"]__main__[\'"]\s*:', line)]
     if not main_guard_line_nums:
         raise check50.Failure("Missing if __name__ == '__main__': guard")
 
@@ -34,10 +30,9 @@ def check_main_guard():
         return bool(re.match(r'^\s*#', line))
 
     # Find all lines that call main() but exclude function definitions and comment lines
-    main_call_line_nums = [i for i, line in enumerate(lines)
-                          if (not is_comment_line(line))
-                          and re.search(r'\bmain\s*\(\s*\)', line)
-                          and not re.match(r'\s*def\s+main\s*\(', line)]
+    main_call_line_nums = [i for i, line in enumerate(lines) if
+                           (not is_comment_line(line)) and re.search(r'\bmain\s*\(\s*\)', line) and not re.match(
+                               r'\s*def\s+main\s*\(', line)]
 
     if not main_call_line_nums:
         raise check50.Failure("No call to main() found")
@@ -57,10 +52,7 @@ def check_main_guard():
 @check50.check(exists)
 def check_quit_immediately():
     """Entering 5 immediately quits with 'Goodbye!'"""
-    (check50.run("python3 calculator.py")
-        .stdin("5")
-        .stdout("Goodbye!", regex=True)
-        .exit(0))
+    (check50.run("python3 calculator.py").stdin("5").stdout("Goodbye!", regex=True).exit(0))
 
 
 @check50.check(check_main_guard)
@@ -93,51 +85,67 @@ def check_get_number():
 @check50.check(exists)
 def check_addition():
     """handles addition correctly"""
-    (check50.run("python3 calculator.py")
-     .stdin("1")
-     .stdin("4")
-     .stdin("5")
-     .stdout("Result:\\s*9\\.0", regex=True)
-     .stdin("5")
-     .stdout("Goodbye!", regex=True)
-     .exit(0))
+    (check50.run("python3 calculator.py").stdin("1").stdin("4").stdin("5").stdout("Result:\\s*9\\.0", regex=True).stdin(
+        "5").stdout("Goodbye!", regex=True).exit(0))
+
+
+@check50.check(exists)
+def test_subtraction():
+    """handles subtraction correctly"""
+    (check50.run("python3 calculator.py").stdin("2")  # Subtract
+     .stdin("25")  # First number
+     .stdin("7")  # Second number
+     .stdout("Result:\s*18\.0", regex=True)
+     .stdin("5")  # Quit
+     .stdout("Goodbye!", regex=True).exit(0))
+
+
+@check50.check(exists)
+def test_multiplication():
+    """handles multiplication correctly"""
+    (check50.run("python3 calculator.py").stdin("3")  # Multiply
+     .stdin("6")  # First number
+     .stdin("7.5")  # Second number
+     .stdout("Result:\s*45\.0", regex=True)
+     .stdin("5")  # Quit
+     .stdout("Goodbye!", regex=True).exit(0))
+
+
+@check50.check(exists)
+def test_division():
+    """handles division correctly"""
+    (check50.run("python3 calculator.py").stdin("4")  # Divide
+     .stdin("20")  # First number
+     .stdin("4")  # Second number
+     .stdout("Result:\s*5\.0", regex=True)
+     .stdin("5")  # Quit
+     .stdout("Goodbye!", regex=True).exit(0))
 
 
 @check50.check(exists)
 def check_invalid_input():
     """handles non-numeric input"""
-    (check50.run("python3 calculator.py")
-     .stdin("2")
-     .stdin("ten")
-     .stdout("Error: Please enter a valid number\\.", regex=True)
-     .stdin("3")
-     .stdin("2")
-     .stdin("5")
-     .stdout("Goodbye!", regex=True)
-     .exit(0))
+    (check50.run("python3 calculator.py").stdin("2").stdin("ten").stdout("Error: Please enter a valid number\\.",
+                                                                         regex=True).stdin("3").stdin("2").stdin(
+        "5").stdout("Goodbye!", regex=True).exit(0))
 
 
 @check50.check(exists)
 def check_divide_by_zero():
     """handles division by zero"""
-    (check50.run("python3 calculator.py")
-     .stdin("4")
-     .stdin("10")
-     .stdin("0")
-     .stdout("Error: Cannot divide by zero\\.", regex=True)
-     .stdin("5")
-     .stdout("Goodbye!", regex=True)
-     .exit(0))
+    (check50.run("python3 calculator.py").stdin("4").stdin("10").stdin("0").stdout("Error: Cannot divide by zero\\.",
+                                                                                   regex=True).stdin("5").stdout(
+        "Goodbye!", regex=True).exit(0))
 
 
 @check50.check(exists)
 def check_try_except_count():
     """uses at least 2 try blocks and 3 except blocks"""
-    try_count = int(subprocess.run(
-        "grep -c 'try' calculator.py", shell=True, capture_output=True, text=True).stdout.strip())
+    try_count = int(
+        subprocess.run("grep -c 'try' calculator.py", shell=True, capture_output=True, text=True).stdout.strip())
 
-    except_count = int(subprocess.run(
-        "grep -c 'except' calculator.py", shell=True, capture_output=True, text=True).stdout.strip())
+    except_count = int(
+        subprocess.run("grep -c 'except' calculator.py", shell=True, capture_output=True, text=True).stdout.strip())
 
     assert try_count >= 2, "Less than 2 try blocks found"
     assert except_count >= 3, "Less than 3 except blocks found"
