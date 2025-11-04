@@ -9,7 +9,7 @@ TEST_FILE = "test_library.csv"
 
 @check50.check()
 def exists():
-    """library.py exists"""
+    """library_save.py exists"""
     check50.exists(FILENAME)
 
 
