@@ -1,15 +1,22 @@
 # CSCI 201 — Demo pset: Spot the Bug
 
+Start by creating all six files (they can be empty for now):
+```
+touch problem1.py problem2.py problem3.py problem4.py problem5.py problem6.py
+```
+
 Run the autograder at any time with:
 ```
 check50 CitadelCS/problems/main/demo
 ```
 
+Work through each problem below, running `check50` after each fix to see your progress.
+
 ---
 
 ## Problem 1 — Type Error
 
-Create a file called `problem1.py` and paste in the following code:
+Paste the following code into `problem1.py`:
 
 ```python
 age = input("How old are you? ")
@@ -23,7 +30,7 @@ Run `check50`. You should see Problem 1 fail. Fix the bug so the program correct
 
 ## Problem 2 — Syntax Error
 
-Create a file called `problem2.py` and paste in the following code:
+Paste the following code into `problem2.py`:
 
 ```python
 score = 85
@@ -39,7 +46,7 @@ Run `check50`. You should see Problem 2 fail. Fix the bug so the program runs wi
 
 ## Problem 3 — Indentation Error
 
-Create a file called `problem3.py` and paste in the following code:
+Paste the following code into `problem3.py`:
 
 ```python
 for i in range(5):
@@ -53,7 +60,7 @@ Run `check50`. You should see Problem 3 fail. Fix the bug so the program runs wi
 
 ## Problem 4 — Off-by-One Error
 
-Create a file called `problem4.py` and paste in the following code:
+Paste the following code into `problem4.py`:
 
 ```python
 numbers = [10, 20, 30, 40, 50]
@@ -67,7 +74,7 @@ Run `check50`. You should see Problem 4 fail. Fix the bug so all five numbers ar
 
 ## Problem 5 — Name Error
 
-Create a file called `problem5.py` and paste in the following code:
+Paste the following code into `problem5.py`:
 
 ```python
 username = "Mike"
