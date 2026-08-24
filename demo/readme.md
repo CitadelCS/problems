@@ -1,4 +1,4 @@
-# CSCI 201 — Demo Pset: Spot the Bug
+# CSCI 201 — Demo pset: Spot the Bug
 
 Run the autograder at any time with:
 ```
