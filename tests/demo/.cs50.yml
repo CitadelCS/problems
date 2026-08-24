@@ -1,0 +1,14 @@
+submit50:
+  files: &submit50_files
+    - !exclude "*"
+    - !include "*.py"
+    - !require problem1.py
+    - !require problem2.py
+    - !require problem3.py
+    - !require problem4.py
+    - !require problem5.py
+    - !require problem6.py
+  style: false
+
+check50:
+  files: *submit50_files
