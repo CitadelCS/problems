@@ -110,7 +110,7 @@ This one won't crash — but the output won't be right. Fix the bug so all five 
 Paste the following code into `problem5.py`:
 
 ```python
-username = "Mike"
+username = "General McKenzie"
 print("Welcome, " + usrname)
 ```
 
