@@ -1,6 +1,11 @@
 # CSCI 201 — Demo pset: Spot the Bug
 
-Start by creating a folder for your work and navigating into it:
+Follow along with this practice pset to get used to editing files and using the autograder. You will use a similar workflow in future psets for a grade.
+Before beginning, ensure you have completed the "Account Setup and Test Program" steps posted on Canvas.
+
+
+Start by creating a folder for your work and navigating into it. First, log into [cs50.dev](https://cs50.dev), which will launch VSCode in the browser. Then, type the following commands in the terminal on the bottom.
+
 ```
 mkdir demo
 cd demo
